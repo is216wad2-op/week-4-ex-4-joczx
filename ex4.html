@@ -9,7 +9,7 @@
       <input id="userinput"  onkeypress="addListAfterKeyPress()" 
                               type="text" placeholder="enter items">
       <button id="enter" onclick="addListAfterClick()" >Enter</button>
-      <ul>
+      <ul id = "myul">
          <li>Notebook
              <button onclick="remove(this.parentNode)">delete</button>
          </li>
@@ -32,24 +32,25 @@
       
       <script>
       
-         function addListAfterClick() {
-            console.log(event);
-            var ul = document.getElementsByTagName("ul")[0];
-            var li = document.createElement("li");
-            var input = document.getElementById("userinput");
-            // add new item only if the user has entered something
-            if (input.value.length > 0) {
-               createNewItem(input);
-               input.value = "";
-            }}
-         function addListAfterKeyPress(){
-            console.log(event);
-            console.log(event.keyCode);
-            var input = document.getElementById("userinput");
-            if(input.value.length > 0 && event.keyCode == 13){
-               createNewItem(input);
-               input.value = "";
-            }}
+      function addListAfterClick() {
+         console.log(event);
+         var ul = document.getElementsByTagName("ul")[0];
+         var li = document.createElement("li");
+         var input = document.getElementById("userinput");
+         // add new item only if the user has entered something
+         if (input.value.length > 0) {
+            createNewItem(input);
+            input.value = "";
+         }}
+      function addListAfterKeyPress(){
+         console.log(event);
+         console.log(event.keyCode);
+         var input = document.getElementById("userinput");
+         if(input.value.length > 0 && event.keyCode == 13){
+            createNewItem(input);
+            input.value = "";
+         }
+      }
          function createNewItem(item){
             var ul = document.getElementsByTagName("ul")[0];
             var li = document.createElement("li");
